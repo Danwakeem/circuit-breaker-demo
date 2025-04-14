@@ -43,6 +43,9 @@ func Test_CircuitBreaker(t *testing.T) {
 	// sleep until breaker delay trips half open state. Added 10 for a reasonable buffer time.
 	time.Sleep(breaker1.RemainingDelay() + 10)
 
+	// Works if I uncomment this line
+	// breaker1.HalfOpen()
+
 	// Assert that breaker1 is half open after delay
 	assert.True(t, breaker1.IsHalfOpen(), "breaker1 should be half open")
 
